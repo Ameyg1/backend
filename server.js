@@ -64,14 +64,14 @@ app.post('/api/attendees',(req, res) => {
   //});
 //});
  
-//Delete product
-//app.delete('/api/products/:id',(req, res) => {
- // let sql = "DELETE FROM product WHERE product_id="+req.params.id+"";
- // let query = conn.query(sql, (err, results) => {
- //   if(err) throw err;
-  //    res.send(JSON.stringify({"status": 200, "error": null, "response": results}));
- // });
-//});
+//Delete attendee
+app.delete('/api/attendees/:id',(req, res) => {
+  let sql = "DELETE FROM attendees WHERE ID="+req.params.id+"";
+  let query = conn.query(sql, (err, results) => {
+    if(err) throw err;
+   res.send(JSON.stringify({"status": 200, "error": null, "response": results}));
+  });
+});
  
 //Server listening
 if(process.env.NODE_ENV=== 'production')
