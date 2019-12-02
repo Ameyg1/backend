@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server",
+    "start": "pm2-runtime start ecosystem.config.js --env production",
     "server": "nodemon server"
   },
   "author": "Amey Ghodke",
@@ -17,6 +17,7 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "mysql": "^2.17.1",
-    "nodemon": "^2.0.1"
+    "nodemon": "^2.0.1",
+    "pm2": "^4.2.0"
   }
 }

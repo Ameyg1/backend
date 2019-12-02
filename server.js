@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const app = express();
 const mysql = require('mysql');
 const cors=require('cors');
- 
+ //const path=require('path');
 require('dotenv').config();
 // parse application/json
 app.use(bodyParser.json());
@@ -74,15 +74,15 @@ app.delete('/api/attendees/:id',(req, res) => {
 });
  
 //Server listening
-if(process.env.NODE_ENV=== 'production')
-  {
+//if(process.env.NODE_ENV=== 'production')
+ // {
     //setstatic folder
-    app.use(express.static('client/build'));
-    app.get('*',(req,res)=>{
-      res.sendFile(path.resolve(__dirname,'client','build','index.html'));
+  //  app.use(express.static('client/build'));
+  //  app.get('*',(req,res)=>{
+  //    res.sendFile(path.resolve(__dirname,'client','build','index.html'));
 
-    });
-  }
+  //  });
+ // }
 app.timeout = 0;
 const port= process.env.PORT || 5000;
 app.listen(port,() =>{
