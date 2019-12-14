@@ -27,9 +27,19 @@ conn.connect((err) =>{
   console.log('Mysql Connected...');
 });
  
-//show all products
-app.get('/api/attendees',(req, res) => {
-  let sql = "SELECT * FROM attendees";
+// event validation
+app.post('/api/event/validate',(req, res) => {
+  let data = {EVENT_ID:req.body.EVENT_ID};
+  console.log("Event_ID: " + req.body.EVENT_ID);
+  let sql = "SELECT * FROM event WHERE EVENT_ID="+req.body.EVENT_ID;
+  let query = conn.query(sql, data,(err, results) => {
+    if(err) throw err;
+    res.send(JSON.stringify({"status": 200, "error": null, "response": results}));
+  });
+});
+//show all attendees for particular event
+app.get('/api/attendees/:id',(req, res) => {
+  let sql = "SELECT * FROM attendees WHERE EVENT_ID="+req.params.id;
   let query = conn.query(sql, (err, results) => {
     if(err) throw err;
     res.send(JSON.stringify({"status": 200, "error": null, "response": results}));
@@ -46,9 +56,9 @@ app.get('/api/attendees/:id',(req, res) => {
 });
  
 //add new product
-app.post('/api/attendees',(req, res) => {
-  let data = {NAME: req.body.NAME, TITLE: req.body.TITLE,COMPANY: req.body.COMPANY,BIO:req.body.BIO,EMAIL:req.body.EMAIL,FACEBOOK:req.body.FACEBOOK,TWITTER:req.body.TWITTER,LINKEDIN:req.body.LINKEDIN};
-  let sql = "INSERT INTO attendees SET ?";
+app.post('/api/attendees/:id',(req, res) => {
+  let data = {NAME: req.body.NAME, TITLE: req.body.TITLE,COMPANY: req.body.COMPANY,BIO:req.body.BIO,EMAIL:req.body.EMAIL,FACEBOOK:req.body.FACEBOOK,TWITTER:req.body.TWITTER,LINKEDIN:req.body.LINKEDIN,EVENT_ID:req.params.id};
+  let sql = "INSERT INTO attendees SET ? ";
   let query = conn.query(sql, data,(err, results) => {
     if(err) throw err;
     res.send(JSON.stringify({"status": 200, "error": null, "response": results}));
