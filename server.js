@@ -46,6 +46,15 @@ app.get('/api/attendees/:id',(req, res) => {
   });
 });
  
+//show particular event details
+app.get('/api/event/:id',(req, res) => {
+  let sql = "SELECT * FROM event WHERE EVENT_ID="+req.params.id;
+  let query = conn.query(sql, (err, results) => {
+    if(err) throw err;
+    res.send(JSON.stringify({"status": 200, "error": null, "response": results}));
+  });
+});
+
 //show single product
 app.get('/api/attendees/:id',(req, res) => {
   let sql = "SELECT * FROM attendees WHERE ID="+req.params.id;
@@ -55,6 +64,15 @@ app.get('/api/attendees/:id',(req, res) => {
   });
 });
  
+//add new event
+app.post('/api/event',(req, res) => {
+  let data = {EVENT_NAME: req.body.EVENT_NAME,ORG_EMAIL: req.body.ORG_EMAIL,ORGANISER: req.body.ORGANISER,VENUE:req.body.VENUE,PURPOSE:req.body.PURPOSE};
+  let sql = "INSERT INTO event SET ? ";
+  let query = conn.query(sql, data,(err, results) => {
+    if(err) throw err;
+    res.send(JSON.stringify({"status": 200, "error": null, "response": results}));
+  });
+});
 //add new product
 app.post('/api/attendees/:id',(req, res) => {
   let data = {NAME: req.body.NAME, TITLE: req.body.TITLE,COMPANY: req.body.COMPANY,BIO:req.body.BIO,EMAIL:req.body.EMAIL,FACEBOOK:req.body.FACEBOOK,TWITTER:req.body.TWITTER,LINKEDIN:req.body.LINKEDIN,EVENT_ID:req.params.id};
