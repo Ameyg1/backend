@@ -1000,3 +1000,143 @@ Event_ID: 100018
 Event_ID: 100018
 Event_ID: 100015
 Event_ID: 100015
+
+> backend@1.0.0 start /home/ec2-user/backend
+> pm2-runtime start ecosystem.config.js --env production
+
+[WARN] PM2 Daemon is already running
+2019-12-19T06:43:42: PM2 log: Stopping app:API id:0
+2019-12-19T06:43:42: PM2 log: App name:API id:0 disconnected
+2019-12-19T06:43:42: PM2 log: App [API:0] exited with code [0] via signal [SIGINT]
+2019-12-19T06:43:42: PM2 log: pid=7311 msg=process killed
+2019-12-19T06:43:42: PM2 log: App [API:0] starting in -cluster mode-
+2019-12-19T06:43:42: PM2 log: App [API:0] online
+Server started on port 5000...
+Server started on port 5000...
+Mysql Connected...
+Mysql Connected...
+Event_ID: 100018
+Event_ID: 100018
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100001
+Event_ID: 100015
+Event_ID: 100015
+Event_ID: 100016
+Event_ID: 100016
+Event_ID: 100016
+Event_ID: 100020
+Event_ID: 100020
+Event_ID: 100020
+Event_ID: 100020
+Event_ID: 100020
+Event_ID: 100020
+Event_ID: 100020
+Event_ID: 100020
+Event_ID: 100020
+Event_ID: 100020
+Event_ID: 100020
+Event_ID: 100021
+Event_ID: 100021
+Event_ID: 100021
