@@ -113,7 +113,8 @@ app.post("/api/event", (req, res) => {
     ORG_EMAIL: req.body.ORG_EMAIL,
     ORGANISER: req.body.ORGANISER,
     VENUE: req.body.VENUE,
-    PURPOSE: req.body.PURPOSE
+    PURPOSE: req.body.PURPOSE,
+    PLAN: "Freemium"
   };
   let sql = "INSERT INTO event SET ? ";
   let query = conn.query(sql, data, (err, results) => {
