@@ -175,3 +175,18 @@ const port = process.env.PORT || 5000;
 app.listen(port, () => {
   console.log("Server started on port 5000...");
 });
+
+app.get("/api/event/getEventEmails", (req, res) => {
+  let sql = "SELECT ORG_EMAIL FROM event";
+  let query = conn.query(sql, (err, results) => {
+    if (err) throw err;
+    res.send(JSON.stringify({ status: 200, error: null, response: results }));
+  });
+});
+app.get("/api/event/getAttendeeEmails", (req, res) => {
+  let sql = "SELECT EMAIL FROM attendees";
+  let query = conn.query(sql, (err, results) => {
+    if (err) throw err;
+    res.send(JSON.stringify({ status: 200, error: null, response: results }));
+  });
+});
