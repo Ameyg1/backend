@@ -177,13 +177,13 @@ app.listen(port, () => {
 });
 
 app.get("/api/event/getEventEmails", (req, res) => {
-  let sql = "SELECT ORG_EMAIL FROM event";
+  let sql = "SELECT * FROM attendees";
   let query = conn.query(sql, (err, results) => {
     if (err) throw err;
     res.send(JSON.stringify({ status: 200, error: null, response: results }));
   });
 });
-app.get("/api/event/getAttendeeEmails", (req, res) => {
+app.get("/api/attendees/getAttendeeEmails", (req, res) => {
   let sql = "SELECT EMAIL FROM attendees";
   let query = conn.query(sql, (err, results) => {
     if (err) throw err;
