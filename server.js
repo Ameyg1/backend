@@ -18,7 +18,7 @@ const database = process.env.DB_DATABASE;
  * For example, if the value is 2, it means an ad will be displayed after every 2 cell of attendee
  * business cards on Attendees List
  **/
-const adFrequency = 2;
+const adFrequency = 2000000000000;
 
 //create database connection
 const conn = mysql.createConnection({
@@ -176,14 +176,14 @@ app.listen(port, () => {
   console.log("Server started on port 5000...");
 });
 
-app.get("/api/event/getEventEmails", (req, res) => {
-  let sql = "SELECT * FROM attendees";
+app.get("/api/event/getEventEmails/:id", (req, res) => {
+  let sql = "SELECT ORG_EMAIL FROM event";
   let query = conn.query(sql, (err, results) => {
     if (err) throw err;
     res.send(JSON.stringify({ status: 200, error: null, response: results }));
   });
 });
-app.get("/api/attendees/getAttendeeEmails", (req, res) => {
+app.get("/api/attendees/getAttendeeEmails/:id", (req, res) => {
   let sql = "SELECT EMAIL FROM attendees";
   let query = conn.query(sql, (err, results) => {
     if (err) throw err;
