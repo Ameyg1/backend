@@ -176,6 +176,9 @@ app.listen(port, () => {
   console.log("Server started on port 5000...");
 });
 
+/**
+ * Get All emails of registered Event organisers
+ */
 app.get("/api/event/getEventEmails/:id", (req, res) => {
   let sql = "SELECT ORG_EMAIL FROM event";
   let query = conn.query(sql, (err, results) => {
@@ -183,6 +186,10 @@ app.get("/api/event/getEventEmails/:id", (req, res) => {
     res.send(JSON.stringify({ status: 200, error: null, response: results }));
   });
 });
+
+/**
+ * Get All emails of registered event attendees
+ */
 app.get("/api/attendees/getAttendeeEmails/:id", (req, res) => {
   let sql = "SELECT EMAIL FROM attendees";
   let query = conn.query(sql, (err, results) => {
