@@ -39,7 +39,6 @@ conn.connect(err => {
 // event validation
 app.post("/api/event/validate", (req, res) => {
   let data = { EVENT_ID: req.body.EVENT_ID };
-  console.log("Event_ID: " + req.body.EVENT_ID);
   let sql = "SELECT * FROM event WHERE EVENT_ID=" + req.body.EVENT_ID;
   let query = conn.query(sql, data, (err, results) => {
     if (err) throw err;
@@ -193,6 +192,42 @@ app.get("/api/event/getEventEmails/:id", (req, res) => {
 app.get("/api/attendees/getAttendeeEmails/:id", (req, res) => {
   let sql = "SELECT EMAIL FROM attendees";
   let query = conn.query(sql, (err, results) => {
+    if (err) throw err;
+    res.send(JSON.stringify({ status: 200, error: null, response: results }));
+  });
+});
+
+/**
+ * Get All emails of registered event attendees
+ */
+app.get("/api/attendees/getAttendeeEmails/:id", (req, res) => {
+  let sql = "SELECT EMAIL FROM attendees";
+  let query = conn.query(sql, (err, results) => {
+    if (err) throw err;
+    res.send(JSON.stringify({ status: 200, error: null, response: results }));
+  });
+});
+
+/**
+ * Get all attendees with given name/company/email for an event from admin page
+ */
+app.post("/api/attendees/searchAttendee/:event", (req, res) => {
+  let data = { NAME: req.body.NAME };
+  let secondParam;
+  if (req.body.NAME) {
+    secondParam = ` AND NAME="${req.body.NAME}"`;
+  } else if (req.body.COMPANY) {
+    secondParam = ` AND COMPANY="${req.body.COMPANY}"`;
+  } else if (req.body.EMAIL) {
+    secondParam = ` AND EMAIL="${req.body.EMAIL}"`;
+  } else if (req.body.ID === "*") {
+    secondParam = "";
+  } else {
+    throw err;
+  }
+
+  let sql = `SELECT * FROM attendees WHERE EVENT_ID=${req.params.event}${secondParam}`;
+  let query = conn.query(sql, data, (err, results) => {
     if (err) throw err;
     res.send(JSON.stringify({ status: 200, error: null, response: results }));
   });
